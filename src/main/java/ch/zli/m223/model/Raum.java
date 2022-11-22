@@ -8,8 +8,9 @@ import javax.persistence.Id;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
+
 @Entity
-public class Role {
+public class Raum {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(readOnly = true)
@@ -17,6 +18,9 @@ public class Role {
 
     @Column(nullable = false)
     private String name;
+
+    @Column
+    private int nummer;
 
     public Long getId() {
         return id;
@@ -34,8 +38,16 @@ public class Role {
         this.name = name;
     }
 
+    public int getNummer() {
+        return nummer;
+    }
+
+    public void setNummer(int nummer) {
+        this.nummer = nummer;
+    }
     
 
+    
 
     
 }
