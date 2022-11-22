@@ -11,7 +11,6 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 @Entity
 public class Person {
-    // id, name, nachname, email, password
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(readOnly = true )
