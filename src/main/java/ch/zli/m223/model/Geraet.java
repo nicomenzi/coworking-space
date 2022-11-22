@@ -1,15 +1,26 @@
 package ch.zli.m223.model;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
-public class Gerät {
+public class Geraet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(readOnly = true)
@@ -23,6 +34,11 @@ public class Gerät {
 
     @Column(nullable = false)
     private String specs;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "geraet_id")
+    @JsonIgnoreProperties("geraet")
+    private Set<BuchungGeraet> buchungen;
 
     public Long getId() {
         return id;

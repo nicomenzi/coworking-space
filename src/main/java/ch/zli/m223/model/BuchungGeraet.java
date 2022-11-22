@@ -7,11 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 @Entity
-public class BuchungGerät {
+public class BuchungGeraet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(readOnly = true)
@@ -25,6 +26,9 @@ public class BuchungGerät {
     
     @Column(nullable = false)
     private LocalDateTime dateEnd;
+
+    @ManyToOne
+    private Geraet geraet;
 
     public Long getId() {
         return id;
