@@ -1,9 +1,15 @@
 /workspace/src/main/java/ch/zli/m223/service/EntryService.java
-/workspace/src/main/java/ch/zli/m223/model/BuchungRaum.java
+/workspace/src/main/java/ch/zli/m223/service/SessionService.java
+/workspace/src/main/java/ch/zli/m223/controller/AuthController.java
 /workspace/src/main/java/ch/zli/m223/model/BuchungGeraet.java
 /workspace/src/main/java/ch/zli/m223/model/Entry.java
-/workspace/src/main/java/ch/zli/m223/model/Geraet.java
 /workspace/src/main/java/ch/zli/m223/model/Person.java
 /workspace/src/main/java/ch/zli/m223/model/Raum.java
 /workspace/src/main/java/ch/zli/m223/model/Role.java
 /workspace/src/main/java/ch/zli/m223/controller/EntryController.java
+/workspace/src/main/java/ch/zli/m223/controller/UserController.java
+/workspace/src/main/java/ch/zli/m223/model/BuchungRaum.java
+/workspace/src/main/java/ch/zli/m223/service/UserService.java
+/workspace/src/main/java/ch/zli/m223/model/Geraet.java
+/workspace/src/main/java/ch/zli/m223/model/Credentials.java
+/workspace/src/main/java/ch/zli/m223/service/AuthService.java

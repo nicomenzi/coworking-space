@@ -2,13 +2,11 @@ package ch.zli.m223.model;
 
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -91,6 +89,31 @@ public class Person {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Set<BuchungGeraet> getBuchungenGeraet() {
+        return buchungenGeraet;
+    }
+
+    public void setBuchungenGeraet(Set<BuchungGeraet> buchungenGeraet) {
+        this.buchungenGeraet = buchungenGeraet;
+    }
+
+    public Set<BuchungRaum> getBuchungRaume() {
+        return buchungRaume;
+    }
+
+    public void setBuchungRaume(Set<BuchungRaum> buchungRaume) {
+        this.buchungRaume = buchungRaume;
+    }
+    
 
     
 }
