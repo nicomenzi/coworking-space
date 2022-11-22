@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class BuchungGeraet {
@@ -27,8 +29,13 @@ public class BuchungGeraet {
     @Column(nullable = false)
     private LocalDateTime dateEnd;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
+    @Fetch(FetchMode.JOIN)
     private Geraet geraet;
+
+    @ManyToOne(optional = false)
+    @Fetch(FetchMode.JOIN)
+    private Person person;
 
     public Long getId() {
         return id;

@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class BuchungRaum {
@@ -25,6 +28,14 @@ public class BuchungRaum {
     
     @Column(nullable = false)
     private LocalDateTime dateEnd;
+
+    @ManyToOne(optional = false)
+    @Fetch(FetchMode.JOIN)
+    private Person person;
+
+    @ManyToOne(optional = false)
+    @Fetch(FetchMode.JOIN)
+    private Raum raum;
 
     public Long getId() {
         return id;
