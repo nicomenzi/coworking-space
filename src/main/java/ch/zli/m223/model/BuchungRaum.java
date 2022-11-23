@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -17,16 +18,15 @@ import org.hibernate.annotations.FetchMode;
 public class BuchungRaum {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Schema(readOnly = true)
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private String status;
 
-    @Column(nullable = false)
+    @Column
     private LocalDateTime dateStart;
     
-    @Column(nullable = false)
+    @Column
     private LocalDateTime dateEnd;
 
     @ManyToOne(optional = false)
@@ -68,6 +68,23 @@ public class BuchungRaum {
     public void setDateEnd(LocalDateTime dateEnd) {
         this.dateEnd = dateEnd;
     }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public Raum getRaum() {
+        return raum;
+    }
+
+    public void setRaum(Raum raum) {
+        this.raum = raum;
+    }
+    
 
     
 

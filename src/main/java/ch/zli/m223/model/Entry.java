@@ -10,13 +10,12 @@ import java.time.LocalDateTime;
 public class Entry {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Schema(readOnly = true)
   private Long id;
 
-  @Column(nullable = false)
+  @Column
   private LocalDateTime checkIn;
 
-  @Column(nullable = false)
+  @Column
   private LocalDateTime checkOut;
 
   public Long getId() {

@@ -13,20 +13,21 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Schema(readOnly = true)
+    
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private String name;
 
     @OneToMany(mappedBy = "role")
-    @JsonIgnoreProperties("role")
+    @JsonIgnore
     @Fetch(FetchMode.JOIN)
     private Set<Person> personen;
 

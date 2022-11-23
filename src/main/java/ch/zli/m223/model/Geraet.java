@@ -13,26 +13,27 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Geraet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Schema(readOnly = true)
+    
     private Long id;
     
-    @Column(nullable = false)
+    @Column
     private String name;
 
-    @Column(nullable = false)
+    @Column
     private String beschreibung;
 
-    @Column(nullable = false)
+    @Column
     private String specs;
 
     @OneToMany(mappedBy = "geraet")
-    @JsonIgnoreProperties("geraet")
+    @JsonIgnore
     @Fetch(FetchMode.JOIN)
     private Set<BuchungGeraet> buchungen;
 

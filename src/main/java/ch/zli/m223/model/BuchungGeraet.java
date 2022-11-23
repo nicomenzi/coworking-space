@@ -17,16 +17,16 @@ import org.hibernate.annotations.FetchMode;
 public class BuchungGeraet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Schema(readOnly = true)
+    
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private String status;
 
-    @Column(nullable = false)
+    @Column
     private LocalDateTime dateStart;
     
-    @Column(nullable = false)
+    @Column
     private LocalDateTime dateEnd;
 
     @ManyToOne(optional = false)
@@ -67,6 +67,22 @@ public class BuchungGeraet {
 
     public void setDateEnd(LocalDateTime dateEnd) {
         this.dateEnd = dateEnd;
+    }
+
+    public Geraet getGeraet() {
+        return geraet;
+    }
+
+    public void setGeraet(Geraet geraet) {
+        this.geraet = geraet;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
     

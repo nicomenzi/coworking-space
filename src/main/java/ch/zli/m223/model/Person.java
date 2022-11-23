@@ -14,6 +14,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -21,19 +22,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Schema(readOnly = true )
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private String name;
 
-    @Column(nullable = false)
+    @Column
     private String nachname;
 
-    @Column(nullable = false)
+    @Column
     private String email;
 
-    @Column(nullable = false)
+    @Column
     private String password;
 
     @ManyToOne(optional = false)
@@ -41,12 +41,12 @@ public class Person {
     private Role role;
 
     @OneToMany(mappedBy = "person")
-    @JsonIgnoreProperties("person")
+    @JsonIgnore
     @Fetch(FetchMode.JOIN)
     private Set<BuchungGeraet> buchungenGeraet;
 
     @OneToMany(mappedBy = "person")
-    @JsonIgnoreProperties("person")
+    @JsonIgnore
     @Fetch(FetchMode.JOIN)
     private Set<BuchungRaum> buchungRaume;
 

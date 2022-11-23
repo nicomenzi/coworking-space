@@ -13,6 +13,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -20,17 +21,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Raum {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Schema(readOnly = true)
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private String name;
 
     @Column
     private int nummer;
 
     @OneToMany(mappedBy = "raum")
-    @JsonIgnoreProperties("raum")
+    @JsonIgnore
     @Fetch(FetchMode.JOIN)
     private Set<BuchungRaum> buchungen;
 
