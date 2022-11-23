@@ -24,18 +24,34 @@ public class AuthService {
         Optional<Person> user = userService.findByMail(credential.getEmail());
         
         try{
-            if(user.isPresent() && user.get().getPassword().equals(credential.getPassword())){
+            if(user.isPresent() && user.get().getPassword().equals(credential.getPassword()) && user.get().getRole().getId() == 1 ){
                 String token = Jwt
                     .issuer("https://example.com/issuer")
                     .upn(credential.getEmail())
-                    .groups(new HashSet<>(Arrays.asList("Mitglied", "Administrator")))
+                    .groups(new HashSet<>(Arrays.asList( "Administrator")))
                     .expiresIn(Duration.ofHours(24))
                     .sign();
                 return Response
                     .ok(user.get())
                     .cookie(new NewCookie("coworkingspace", token))
-                    .header("Authorization", "Bearer" + token)
+                    .header("Authorization", "Bearer " + token)
                     .build();
+            }
+            else if(user.isPresent() && user.get().getPassword().equals(credential.getPassword()) && user.get().getRole().getId() == 2 ){
+                String token = Jwt
+                    .issuer("https://example.com/issuer")
+                    .upn(credential.getEmail())
+                    .groups(new HashSet<>(Arrays.asList("Mitglied")))
+                    .expiresIn(Duration.ofHours(24))
+                    .sign();
+                return Response
+                    .ok(user.get())
+                    .cookie(new NewCookie("coworkingspace", token))
+                    .header("Authorization", "Bearer " + token)
+                    .build();
+            }
+            else{
+                return Response.status(Response.Status.UNAUTHORIZED).build();
             }
         }catch (Exception e) {
             System.err.println("Couldn't valitade Password");

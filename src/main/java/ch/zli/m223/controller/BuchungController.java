@@ -25,6 +25,7 @@ import ch.zli.m223.service.BuchungService;
 
 @Path("/buchung")
 @Tag(name = "Buchung", description = "Handling of Buchung")
+@RolesAllowed({"Mitglied", "Administrator"})
 public class BuchungController {
     
     @Inject
@@ -34,7 +35,7 @@ public class BuchungController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "summary",
+        summary = "Bucht ein Gerät",
         description = "description"
     )
     public BuchungRaum createBuchungRaum(BuchungRaum buchungRaum) {
@@ -45,7 +46,7 @@ public class BuchungController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "summary",
+        summary = "Gibt alle Buchungen zurück",
         description = "description"
     )
     public List<BuchungRaum> getBuchungRaum() {
@@ -57,7 +58,7 @@ public class BuchungController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "summary",
+        summary = "Löscht eine Buchung",
         description = "description"
     )
     public void deleteBuchungRaum(@PathParam("id") Long id) {
@@ -69,7 +70,7 @@ public class BuchungController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "summary",
+        summary = "Bucht ein Gerät",
         description = "description"
     )
     public BuchungGeraet createBuchungGeraet(BuchungGeraet buchungGeraet) {
@@ -81,7 +82,7 @@ public class BuchungController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "summary",
+        summary = "Gibt alle Buchungen zurück",
         description = "description"
     )
     public List<BuchungGeraet> getBuchungGeraet() {
@@ -93,7 +94,7 @@ public class BuchungController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "summary",
+        summary = " Löscht eine Buchung",
         description = "description"
     )
     public void deleteBuchungGeraet(@PathParam("id") Long id) {

@@ -28,6 +28,7 @@ import ch.zli.m223.service.AdminService;
 
 @Path("/admin")
 @Tag(name = "Admin", description = "Handling of Admin")
+@RolesAllowed("Administrator")
 public class AdminController {
 
     @Inject
@@ -38,8 +39,7 @@ public class AdminController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "summary",
-        description = "description"
+        summary = "Gibt alle Mitglieder zurück"
     )
     public List<Person> getMember() {
         return adminService.getPersonen();
@@ -50,7 +50,7 @@ public class AdminController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "summary",
+        summary = "Löscht ein Mitglied",
         description = "description"
     )
     public void deleteMember(@PathParam("id") Long id) {
@@ -62,7 +62,7 @@ public class AdminController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "summary",
+        summary = "Ändert ein Mitglied",
         description = "description"
     )
     public Person updateMember(@PathParam("id") Long id, Person person) {
@@ -76,7 +76,7 @@ public class AdminController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "summary",
+        summary = " Löscht eine Buchung eines Raumes",
         description = "description"
     )
     public void deleteBuchungRaum(@PathParam("id") Long id) {
@@ -88,7 +88,7 @@ public class AdminController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "summary",
+        summary = " Ändert eine Buchung von einem Raum",
         description = "description"
     )
     public BuchungRaum updateBuchungRaum(@PathParam("id") Long id, BuchungRaum buchungRaum) {
@@ -101,7 +101,7 @@ public class AdminController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "summary",
+        summary = " Löscht eine Buchung von einem Gerät",
         description = "description"
     )
     public void deleteBuchungGeraet(@PathParam("id") Long id) {
@@ -113,7 +113,7 @@ public class AdminController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "summary",
+        summary = " Ändert eine Buchung von einem Gerät",
         description = "description"
     )
     public BuchungGeraet updateBuchungGeraet(@PathParam("id") Long id, BuchungGeraet buchungGeraet) {

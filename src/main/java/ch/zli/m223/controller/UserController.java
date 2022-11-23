@@ -16,6 +16,7 @@ public class UserController {
 
     @Inject
     UserService userService;
+    
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
