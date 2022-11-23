@@ -1,6 +1,5 @@
 package ch.zli.m223.controller;
 
-import javax.annotation.security.PermitAll;
 import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
