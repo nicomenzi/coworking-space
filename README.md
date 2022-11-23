@@ -5,7 +5,7 @@ Dieses Projekt ist eine Rest API die für ei Coworkingspace erstellt wurde bei d
 Das Projekt wurde mit Quarkus erstellt und verwendet eine Postgres Datenbank.
 
 ## Starten
-Um das Projekt zu starten muss Docker installiert sein und in der IDE muss das Docker und Dev Container Plugin installiert sein.
+Um das Projekt zu starten muss Docker installiert sein und in der IDE muss das Docker und Dev Container Plugin installiert sein. Danach kann das Projekt mit `Quarkus: Debug current Quarkus Project` gestartet werden.
 
 ## Datenbank
 
@@ -31,3 +31,6 @@ Login: `http://localhost:8080/auth`
 
 ## API Dokumentation
 Die API Dokumentation ist unter http://localhost:8080/q/swagger-ui/ zu finden.
+
+# Testen
+Die  Tests können mit `./mvnw quarkus:test` ausgeführt werden.
