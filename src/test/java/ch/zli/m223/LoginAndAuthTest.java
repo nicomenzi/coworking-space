@@ -58,6 +58,7 @@ public class LoginAndAuthTest {
 
     @Test
     public void registerPositive() {
+        //normal register
         given().contentType(ContentType.JSON)
           .body("{\"name\":\"test\",\"nachname\":\"test\",\"email\":\"test@test.test\",\"password\":\"test\",\"role\":{\"id\":1}}")
           .when().post("http://localhost:8080/register")
@@ -67,6 +68,8 @@ public class LoginAndAuthTest {
 
     @Test
     public void registerNegative() {
+
+        //register withou role
         given().contentType(ContentType.JSON)
           .body("{\"name\":\"test\",\"nachname\":\"test\",\"email\":\"test@test.test\",\"password\":\"test\"}")
           .when().post("http://localhost:8080/register")
@@ -75,12 +78,9 @@ public class LoginAndAuthTest {
     }
 
     @Test
-    public void loginPositive() {
+    public void loginNegative() {
 
-        given().contentType(ContentType.JSON)
-        .body("{\"name\":\"test\",\"nachname\":\"test\",\"email\":\"test@test.test\",\"password\":\"test\",\"role\":{\"id\":1}}")
-          .when().post("http://localhost:8080/register")
-          .then();
+        //nonexistent user
 
         given().contentType(ContentType.JSON)
           .body("{\"email\":\"test@test.ch\",\"password\":\"test\"}")
