@@ -69,7 +69,7 @@ public class LoginAndAuthTest {
     @Test
     public void registerNegative() {
 
-        //register withou role
+        //register without role
         given().contentType(ContentType.JSON)
           .body("{\"name\":\"test\",\"nachname\":\"test\",\"email\":\"test@test.test\",\"password\":\"test\"}")
           .when().post("http://localhost:8080/register")

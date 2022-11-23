@@ -84,7 +84,7 @@ public class AdminController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = " Ändert eine Buchung von einem Raum",
+        summary = " Ändert eine Buchung von einem Raum zb. Akzeptieren oder ablehnen",
         description = "description"
     )
     public BuchungRaum updateBuchungRaum(@PathParam("id") Long id, BuchungRaum buchungRaum) {
@@ -109,13 +109,15 @@ public class AdminController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = " Ändert eine Buchung von einem Gerät",
+        summary = " Ändert eine Buchung von einem Gerät zb. Akzeptieren oder ablehnen",
         description = "description"
     )
     public BuchungGeraet updateBuchungGeraet(@PathParam("id") Long id, BuchungGeraet buchungGeraet) {
         buchungGeraet.setId(id);
         return adminService.updateBuchungGeraet(buchungGeraet);
     }
+
+
 
 
 

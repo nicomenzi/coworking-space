@@ -20,6 +20,7 @@ public class AdminResourceTest {
     @Test
     @TestSecurity(user = "testuser", roles = {"Administrator"})
     public void testgetMember() {
+      
      given()
        .when().get("/admin/member")
        .then()

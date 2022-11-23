@@ -22,6 +22,8 @@ public class BuchungResourceTest {
           
     }
 
+    
+
     @Test
     @TestSecurity(user = "testuser", roles = {""})
     public void testcreateBuchungNegative() {
@@ -44,16 +46,6 @@ public class BuchungResourceTest {
 
     @Test
     @TestSecurity(user = "testuser", roles = {"Administrator"})
-    public void testgetBuchungGeraet() {
-     given()
-       .when().get("/buchung/geraet")
-       .then()
-          .statusCode(200);
-          
-    }
-
-    @Test
-    @TestSecurity(user = "testuser", roles = {"Administrator"})
     public void testdeleteBuchung() {
      given()
        .when().delete("/buchung/1")
@@ -62,14 +54,37 @@ public class BuchungResourceTest {
           
     }
     @Test
-    @TestSecurity(user = "testuser", roles = {""})
-    public void testdeleteBuchungAuth() {
+    @TestSecurity(user = "testuser", roles = {"Administrator"})
+    public void testdeleteBuchungGeraet() {
+      //try to delete a non existing buchung
      given()
-       .when().delete("/buchung/1")
+       .when().delete("/buchung/geraet/1")
+       .then()
+          .statusCode(500);
+          
+    }
+
+    @Test
+    @TestSecurity(user = "testuser", roles = {""})
+    public void testdeleteBuchungAuthNegative() {
+     given()
+       .when().delete("/buchung/geraet/1")
        .then()
           .statusCode(403);
           
     }
+
+    @Test
+    @TestSecurity(user = "testuser", roles = {"Administrator"})
+    public void testgetBuchungGeraet() {
+     given()
+       .when().get("/buchung/geraet")
+       .then()
+          .statusCode(200);
+          
+    }
+
+
    
 
    

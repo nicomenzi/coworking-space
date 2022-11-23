@@ -62,6 +62,11 @@ public class BuchungController {
         buchungService.deleteBuchungRaum(id);
     }
 
+
+    // ------------------------------
+    // Gerätebuchung Zusatzaufgabe
+    // ------------------------------
+
     @Path("/geraet")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
