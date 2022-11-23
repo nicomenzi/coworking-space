@@ -26,7 +26,7 @@ public class AuthService {
         try{
             if(user.isPresent() && user.get().getPassword().equals(credential.getPassword()) && user.get().getRole().getId() == 1 ){
                 String token = Jwt
-                    .issuer("https://example.com/issuer")
+                    .issuer("https://zli.example.com/")
                     .upn(credential.getEmail())
                     .groups(new HashSet<>(Arrays.asList( "Administrator")))
                     .expiresIn(Duration.ofHours(24))
@@ -39,7 +39,7 @@ public class AuthService {
             }
             else if(user.isPresent() && user.get().getPassword().equals(credential.getPassword()) && user.get().getRole().getId() == 2 ){
                 String token = Jwt
-                    .issuer("https://example.com/issuer")
+                    .issuer("https://zli.example.com/")
                     .upn(credential.getEmail())
                     .groups(new HashSet<>(Arrays.asList("Mitglied")))
                     .expiresIn(Duration.ofHours(24))

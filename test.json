@@ -1,0 +1,22 @@
+{
+    "id": 0,
+    "status": "string",
+    "dateStart": "2022-03-10T12:15:50",
+    "dateEnd": "2022-03-10T12:15:50",
+    "person": {
+      "id": 0,
+      "name": "string",
+      "nachname": "string",
+      "email": "string",
+      "password": "string",
+      "role": {
+        "id": 0,
+        "name": "string"
+      }
+    },
+    "raum": {
+      "id": 0,
+      "name": "string",
+      "nummer": 0
+    }
+  }
